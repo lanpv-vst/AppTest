@@ -1,1 +1,281 @@
-Code ở đây
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giấy thanh toán</title>
+    <style>
+      :root {
+        --ink: #111;
+        --line: #777;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 18px;
+        background: #ececec;
+        color: var(--ink);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .receipt {
+        width: 540px;
+        margin: 0 auto;
+        background: #fff;
+        border: 1px solid #d9d9d9;
+        padding: 8px 10px 20px;
+        line-height: 1.2;
+      }
+
+      .topline {
+        text-align: center;
+        font-size: 22px;
+        margin-bottom: 4px;
+      }
+
+      .supplier {
+        text-align: center;
+      }
+
+      .supplier .name {
+        font-size: 34px;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 1;
+      }
+
+      .supplier .line1 {
+        font-size: 33px;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 1.03;
+      }
+
+      .supplier .line2,
+      .supplier .line3 {
+        font-size: 29px;
+      }
+
+      .doc-title {
+        text-align: center;
+        font-size: 46px;
+        font-weight: 700;
+        margin: 16px 0 8px;
+      }
+
+      .meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 18px;
+        row-gap: 4px;
+        font-size: 34px;
+        margin-bottom: 8px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 33px;
+      }
+
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 3px 6px;
+      }
+
+      th {
+        text-align: center;
+        font-weight: 700;
+      }
+
+      .right {
+        text-align: right;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .bold {
+        font-weight: 700;
+      }
+
+      .notes {
+        margin-top: 6px;
+        font-size: 33px;
+      }
+
+      .notes .line {
+        margin: 2px 0;
+      }
+
+      .notes .italic {
+        font-style: italic;
+      }
+
+      .vat-note,
+      .director,
+      .sign-row {
+        text-align: center;
+      }
+
+      .vat-note {
+        font-size: 34px;
+        margin: 14px 0 8px;
+        font-style: italic;
+        font-weight: 700;
+      }
+
+      .qr-wrap {
+        display: flex;
+        justify-content: center;
+        margin: 4px 0 6px;
+      }
+
+      .qr-wrap img {
+        width: 128px;
+        height: 128px;
+        border: 1px solid #444;
+      }
+
+      .director {
+        font-size: 43px;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+
+      .sign-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        font-size: 36px;
+        font-weight: 700;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+          padding: 0;
+        }
+
+        .receipt {
+          margin: 0;
+          border: none;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="receipt">
+      <div class="topline">KiotViet - Đơn hàng - Hóa đơn</div>
+
+      <section class="supplier">
+        <div class="name">NHÀ PHÂN PHỐI THỤY LƯƠNG</div>
+        <div class="line1">BÁNH KẸO HỮU NGHỊ, LOTTE, BẢNG, BỈM, GIẤY VỆ SINH, MUA BIA</div>
+        <div class="line2">ĐC: Đường 10, Vĩnh Quang, Vĩnh Bảo, Hải Phòng</div>
+        <div class="line3">ĐT: 0904.362.289 - STK: 117002672652 - Vietinbank- CTY Anh Phát</div>
+      </section>
+
+      <h1 class="doc-title">GIẤY THANH TOÁN</h1>
+
+      <section class="meta">
+        <div>Ngày xuất: 14/04/2026 10:05</div>
+        <div>Số hóa đơn: HD025589</div>
+        <div>Khách hàng: Cô gỗ- Bạch Đằng</div>
+        <div>SĐT:</div>
+        <div>Địa chỉ: xuân Lại, Bạch Đằng</div>
+        <div>Thanh toán: Tiền mặt</div>
+        <div>NVBH: Quảng -0369366095</div>
+        <div>NVGH: Tân - 0397.700.125</div>
+      </section>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 7%">STT</th>
+            <th>Tên hàng</th>
+            <th style="width: 8%">SL</th>
+            <th style="width: 9%">ĐVT</th>
+            <th style="width: 13%">Đ.G</th>
+            <th style="width: 8%">CK</th>
+            <th style="width: 22%">Thành tiền</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="center">1</td>
+            <td>Bánh Tipo 270g</td>
+            <td class="center">10</td>
+            <td class="center">Hộp</td>
+            <td class="right">39,000</td>
+            <td class="center">0</td>
+            <td class="right">390,000</td>
+          </tr>
+          <tr>
+            <td class="center">2</td>
+            <td>Bánh DS285 sữa</td>
+            <td class="center">20</td>
+            <td class="center">gói</td>
+            <td class="right">19,000</td>
+            <td class="center">0</td>
+            <td class="right">380,000</td>
+          </tr>
+          <tr>
+            <td class="center">3</td>
+            <td>Bánh DS285 khoai</td>
+            <td class="center">20</td>
+            <td class="center">gói</td>
+            <td class="right">19,000</td>
+            <td class="center">0</td>
+            <td class="right">380,000</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="right bold">Tổng cộng:</td>
+            <td class="right bold">1,150,000</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="right bold">Chiết khấu hóa đơn:</td>
+            <td class="right bold">0</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="right bold">Tổng tiền hóa đơn sau chiết khấu:</td>
+            <td class="right bold">1,150,000</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="right bold">Nợ cũ:</td>
+            <td class="right bold"></td>
+          </tr>
+          <tr>
+            <td colspan="6" class="right bold">Số tiền còn phải thanh toán:</td>
+            <td class="right bold">1,150,000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <section class="notes">
+        <div class="line"><span class="bold">Thành tiền bằng chữ:</span> <span class="italic">Một triệu một trăm năm mươi nghìn đồng chẵn</span></div>
+        <div class="line center bold">(Hàng đã mua miễn trả lại)</div>
+      </section>
+
+      <div class="vat-note">Khách hàng cần xuất hóa đơn VAT liên hệ SĐT: 0353.089.768</div>
+
+      <div class="qr-wrap">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=128x128&data=CTY%20Anh%20Phat" alt="QR CTY Anh Phát" />
+      </div>
+
+      <div class="director">Chủ TK: CTY Anh Phát</div>
+
+      <div class="sign-row">
+        <div>Khách hàng</div>
+        <div>Nhân viên bán hàng</div>
+        <div>Kế toán</div>
+        <div>Thủ kho</div>
+      </div>
+    </main>
+  </body>
+</html>
